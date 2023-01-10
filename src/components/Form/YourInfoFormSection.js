@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './YourInfoForm.module.css';
+import styles from './YourInfoFormSection.module.css';
 
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
@@ -61,12 +61,12 @@ const Form = () => {
         setEnteredNumberTouched(true);
     };
 
-    const submitFormHandler = (e) => {
-        e.preventDefault();
-    };
+    // const submitFormHandler = (e) => {
+    //     e.preventDefault();
+    // };
 
     return (
-        <form onSubmit={submitFormHandler}>
+        <div className={styles.formSection}>
             <h1>Personal Info</h1>
             <p>Please provide your name, email address, and phone number.</p>
             <div className={styles.formElement}>
@@ -107,7 +107,7 @@ const Form = () => {
             </div>
 
             <button type='submit'>Next step</button>
-        </form>
+        </div>
     );
 };
 
