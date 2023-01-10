@@ -61,14 +61,12 @@ const Form = () => {
         setEnteredNumberTouched(true);
     };
 
-    // const submitFormHandler = (e) => {
-    //     e.preventDefault();
-    // };
-
     return (
         <div className={styles.formSection}>
             <h1>Personal Info</h1>
-            <p>Please provide your name, email address, and phone number.</p>
+            <p className={styles.description}>
+                Please provide your name, email address, and phone number.
+            </p>
             <div className={styles.formElement}>
                 <label htmlFor='name'>Name</label>
                 <input
@@ -78,8 +76,8 @@ const Form = () => {
                     onChange={enteredNameChangeHandler}
                     onBlur={enteredNameBlurHandler}
                 />
-                {emptyName && <p>Name cannot be empty.</p>}
-                {invalidName && <p>Please enter a valid name.</p>}
+                {emptyName && <p className={styles.error}>Name cannot be empty.</p>}
+                {invalidName && <p className={styles.error}>Please enter a valid name.</p>}
             </div>
             <div className={styles.formElement}>
                 <label htmlFor='email-address'>Email address</label>
@@ -90,8 +88,10 @@ const Form = () => {
                     onChange={enteredEmailChangeHandler}
                     onBlur={enteredEmailBlurHandler}
                 />
-                {emptyEmail && <p>Email address cannot be empty.</p>}
-                {invalidEmail && <p>Please enter a valid email address.</p>}
+                {emptyEmail && <p className={styles.error}>Email address cannot be empty.</p>}
+                {invalidEmail && (
+                    <p className={styles.error}>Please enter a valid email address.</p>
+                )}
             </div>
             <div className={styles.formElement}>
                 <label htmlFor='phone'>Phone Number</label>
@@ -102,8 +102,10 @@ const Form = () => {
                     onChange={enteredNumberChangeHandler}
                     onBlur={enteredNumberBlurHandler}
                 ></PhoneInput>
-                {emptyNumber && <p>Phone number cannot be empty.</p>}
-                {invalidNumber && <p>Please enter a valid phone number.</p>}
+                {emptyNumber && <p className={styles.error}>Phone number cannot be empty.</p>}
+                {invalidNumber && (
+                    <p className={styles.error}>Please enter a valid phone number.</p>
+                )}
             </div>
 
             <button type='submit'>Next step</button>

@@ -12,7 +12,8 @@
     margin-right: 1rem;
 }
 
-p {
+.step,
+.title {
     margin: 0;
     text-transform: uppercase;
 }
