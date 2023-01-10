@@ -4,6 +4,11 @@ import styles from './Form.module.css';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 
+const isName = (name) => {
+    const re = /^[a-zA-Z -]+$/;
+    return re.exec(name);
+};
+
 const isEmail = (email) => {
     let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return res.test(email);
@@ -14,34 +19,55 @@ const isNumber = (number) => {};
 const Form = () => {
     //  form input states
     const [enteredName, setEnteredName] = useState('');
+    const [enteredNameTouched, setEnteredNameTouched] = useState(false);
     const [enteredEmail, setEnteredEmail] = useState('');
+    const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
     const [enteredNumber, setEnteredNumber] = useState('');
+    const [enteredNumberTouched, setEnteredNumberTouched] = useState(false);
 
     // for input validators
     const enteredNameIsEmpty = enteredName.trim().length === 0;
-
+    const enteredNameIsNotName = !isName(enteredName);
     const enteredEmailIsEmpty = enteredEmail.trim().length === 0;
     const enteredEmailIsNotEmail = !isEmail(enteredEmail);
+    const enteredNumberIsEmpty = enteredNumber.trim().length === 0;
 
-    // const enteredNumberIsEmpty = enteredNumber.trim().length === 0;
-    // const enteredNumberIsNotNumber = !isNumber(enteredNumber);
+    // validator message conditions
+    const emptyName = enteredNameIsEmpty && enteredNameTouched;
+    const invalidName = !enteredNameIsEmpty && enteredNameIsNotName && enteredNameTouched;
+    const emptyEmail = enteredEmailIsEmpty && enteredEmailTouched;
+    const invalidEmail = !enteredEmailIsEmpty && enteredEmailIsNotEmail && enteredEmailTouched;
 
     const enteredNameChangeHandler = (e) => {
         setEnteredName(e.target.value);
+    };
+
+    const enteredNameBlurHandler = () => {
+        setEnteredNameTouched(true);
     };
 
     const enteredEmailChangeHandler = (e) => {
         setEnteredEmail(e.target.value);
     };
 
+    const enteredEmailBlurHandler = () => {
+        setEnteredEmailTouched(true);
+    };
+
     const enteredNumberChangeHandler = (value) => {
-        setEnteredNumber(value);
+        if (value) {
+            setEnteredNumber(value);
+        } else {
+            setEnteredNumber('');
+        }
+    };
+
+    const enteredNumberBlurHandler = () => {
+        setEnteredNumberTouched(true);
     };
 
     const submitFormHandler = (e) => {
         e.preventDefault();
-
-        console.log(enteredName, enteredEmail, enteredNumber);
     };
 
     return (
@@ -55,7 +81,10 @@ const Form = () => {
                     id='name'
                     placeholder='e.g. Stephen King'
                     onChange={enteredNameChangeHandler}
+                    onBlur={enteredNameBlurHandler}
                 />
+                {emptyName && <p>Name cannot be empty</p>}
+                {invalidName && <p>Please enter a valid name</p>}
             </div>
             <div className={styles.formElement}>
                 <label htmlFor='email-address'>Email address</label>
@@ -64,7 +93,10 @@ const Form = () => {
                     id='email-address'
                     placeholder='e.g. stephenking@lorem.com'
                     onChange={enteredEmailChangeHandler}
+                    onBlur={enteredEmailBlurHandler}
                 />
+                {emptyEmail && <p>Email cannot be empty</p>}
+                {invalidEmail && <p>Please enter a valid email address</p>}
             </div>
             <div className={styles.formElement}>
                 <label htmlFor='phone'>Phone Number</label>
@@ -73,6 +105,7 @@ const Form = () => {
                     placeholder='e.g. +1 234 567 890'
                     value={enteredNumber}
                     onChange={enteredNumberChangeHandler}
+                    onBlur={enteredNumberBlurHandler}
                 ></PhoneInput>
             </div>
 
