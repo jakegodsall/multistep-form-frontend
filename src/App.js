@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Form from './components/Form/Form';
+import YourInfoForm from './components/Form/YourInfoForm';
 
 const App = () => {
-    return <Form></Form>;
+    return <YourInfoForm></YourInfoForm>;
 };
 
 export default App;

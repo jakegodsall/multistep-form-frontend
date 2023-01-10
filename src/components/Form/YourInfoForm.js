@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import styles from './Form.module.css';
+import styles from './YourInfoForm.module.css';
 
 import 'react-phone-number-input/style.css';
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import PhoneInput from 'react-phone-number-input';
 
-const isName = (name) => {
-    const re = /^[a-zA-Z -]+$/;
-    return re.exec(name);
-};
-
-const isEmail = (email) => {
-    let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return res.test(email);
-};
-
-const isNumber = (number) => {};
+// validators
+import { isName, isEmail } from '../../validators';
+import { isValidPhoneNumber } from 'react-phone-number-input';
 
 const Form = () => {
     //  form input states
