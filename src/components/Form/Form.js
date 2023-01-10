@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Form.module.css';
 
 import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 
 const isName = (name) => {
     const re = /^[a-zA-Z -]+$/;
@@ -31,12 +31,15 @@ const Form = () => {
     const enteredEmailIsEmpty = enteredEmail.trim().length === 0;
     const enteredEmailIsNotEmail = !isEmail(enteredEmail);
     const enteredNumberIsEmpty = enteredNumber.trim().length === 0;
+    const enteredNumberIsNotValid = !isValidPhoneNumber(enteredNumber);
 
     // validator message conditions
     const emptyName = enteredNameIsEmpty && enteredNameTouched;
     const invalidName = !enteredNameIsEmpty && enteredNameIsNotName && enteredNameTouched;
     const emptyEmail = enteredEmailIsEmpty && enteredEmailTouched;
     const invalidEmail = !enteredEmailIsEmpty && enteredEmailIsNotEmail && enteredEmailTouched;
+    const emptyNumber = enteredNumberIsEmpty && enteredNumberTouched;
+    const invalidNumber = !enteredNumberIsEmpty && enteredNumberIsNotValid && enteredNumberTouched;
 
     const enteredNameChangeHandler = (e) => {
         setEnteredName(e.target.value);
@@ -83,8 +86,8 @@ const Form = () => {
                     onChange={enteredNameChangeHandler}
                     onBlur={enteredNameBlurHandler}
                 />
-                {emptyName && <p>Name cannot be empty</p>}
-                {invalidName && <p>Please enter a valid name</p>}
+                {emptyName && <p>Name cannot be empty.</p>}
+                {invalidName && <p>Please enter a valid name.</p>}
             </div>
             <div className={styles.formElement}>
                 <label htmlFor='email-address'>Email address</label>
@@ -95,8 +98,8 @@ const Form = () => {
                     onChange={enteredEmailChangeHandler}
                     onBlur={enteredEmailBlurHandler}
                 />
-                {emptyEmail && <p>Email cannot be empty</p>}
-                {invalidEmail && <p>Please enter a valid email address</p>}
+                {emptyEmail && <p>Email address cannot be empty.</p>}
+                {invalidEmail && <p>Please enter a valid email address.</p>}
             </div>
             <div className={styles.formElement}>
                 <label htmlFor='phone'>Phone Number</label>
@@ -107,6 +110,8 @@ const Form = () => {
                     onChange={enteredNumberChangeHandler}
                     onBlur={enteredNumberBlurHandler}
                 ></PhoneInput>
+                {emptyNumber && <p>Phone number cannot be empty.</p>}
+                {invalidNumber && <p>Please enter a valid phone number.</p>}
             </div>
 
             <button type='submit'>Next step</button>
