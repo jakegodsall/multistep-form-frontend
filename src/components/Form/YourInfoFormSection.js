@@ -7,6 +7,7 @@ import PhoneInput from 'react-phone-number-input';
 // validators
 import { isName, isEmail } from '../../validators';
 import { isValidPhoneNumber } from 'react-phone-number-input';
+import Button from '../UI/Button';
 
 const Form = () => {
     //  form input states
@@ -108,7 +109,7 @@ const Form = () => {
                 )}
             </div>
 
-            <button type='submit'>Next step</button>
+            <Button className={styles.button}>Next Step</Button>
         </div>
     );
 };
