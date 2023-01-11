@@ -1,0 +1,41 @@
+.planLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    border: 1px solid hsl(229, 24%, 87%);
+    padding: 1rem;
+
+    cursor: pointer;
+    box-sizing: content-box;
+
+    transition: background-color 0.3s ease-in;
+}
+
+.planLabel:hover {
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+input[type='radio']:checked + .planLabel {
+    background-color: hsl(225, 50%, 97%);
+    border: 2px solid hsl(243, 100%, 62%);
+}
+
+.planIcon {
+    margin-bottom: 2rem;
+}
+
+.planType {
+    font-weight: bolder;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.monthlyPrice {
+    margin: 0;
+    color: hsl(231, 11%, 63%);
+}
+
+.planRadio {
+    display: none;
+}

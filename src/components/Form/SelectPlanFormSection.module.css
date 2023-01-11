@@ -1,0 +1,17 @@
+.formSection {
+    display: flex;
+    flex-direction: column;
+    color: hsl(213, 96%, 18%);
+    padding: 4rem;
+
+    height: 80%;
+    position: relative;
+}
+
+.widgetGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
