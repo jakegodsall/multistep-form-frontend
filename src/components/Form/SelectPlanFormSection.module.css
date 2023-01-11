@@ -23,5 +23,13 @@
     align-items: center;
     background-color: hsl(231, 100%, 99%);
     border-radius: 10px;
-    font-weight: bolder;
+    gap: 1.5rem;
+    color: hsl(231, 11%, 63%);
+}
+
+.duration {
+}
+
+.activeDuration {
+    color: hsl(213, 96%, 18%);
 }
