@@ -35,9 +35,42 @@ label {
 }
 
 input {
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 1rem !important;
+    border-radius: 10px !important;
     border: 1px solid hsl(229, 24%, 87%);
+}
+
+input,
+.phoneInput {
+    font-size: 1rem !important;
+    font-weight: bolder;
+    color: hsl(213, 96%, 18%);
+}
+
+::placeholder {
+    font-size: 1rem;
+}
+
+.phoneInput {
+    width: 100% !important;
+    height: 49px !important;
+    padding-left: 4rem !important;
+}
+
+.phoneButton {
+    width: 3rem;
+    border-radius: 10px !important;
+}
+
+.phoneButton:hover {
+}
+
+input:focus {
+    border: 1px solid hsl(274, 100%, 62%) !important;
+}
+
+.inputError {
+    border: 1px solid hsl(354, 84%, 57%) !important;
 }
 
 .error {
@@ -45,7 +78,7 @@ input {
     margin-top: 0.1rem;
     margin-bottom: 0.5rem;
 
-    color: #ff0000;
+    color: hsl(354, 84%, 57%);
     font-weight: bold;
 }
 

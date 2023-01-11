@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styles from './YourInfoFormSection.module.css';
 
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
+// import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-input-2';
+
+import 'react-phone-input-2/lib/style.css';
 
 // validators
 import { isName, isEmail } from '../../validators';
@@ -50,9 +52,9 @@ const Form = () => {
         setEnteredEmailTouched(true);
     };
 
-    const enteredNumberChangeHandler = (value) => {
-        if (value) {
-            setEnteredNumber(value);
+    const enteredNumberChangeHandler = (value, country, e, formattedValue) => {
+        if (formattedValue) {
+            setEnteredNumber(formattedValue);
         } else {
             setEnteredNumber('');
         }
@@ -75,11 +77,13 @@ const Form = () => {
                     {invalidName && <p className={styles.error}>Please enter a valid name.</p>}
                 </div>
                 <input
+                    className={emptyName || invalidName ? styles.inputError : undefined}
                     type='text'
                     id='name'
                     placeholder='e.g. Stephen King'
                     onChange={enteredNameChangeHandler}
                     onBlur={enteredNameBlurHandler}
+                    country={'uk'}
                 />
             </div>
             <div className={styles.formElement}>
@@ -91,6 +95,7 @@ const Form = () => {
                     )}
                 </div>
                 <input
+                    className={emptyEmail || invalidEmail ? styles.inputError : undefined}
                     type='text'
                     id='email-address'
                     placeholder='e.g. stephenking@lorem.com'
@@ -107,6 +112,12 @@ const Form = () => {
                     )}
                 </div>
                 <PhoneInput
+                    inputClass={
+                        emptyNumber || invalidNumber
+                            ? `${styles.phoneInput} ${styles.inputError}`
+                            : `${styles.phoneInput}`
+                    }
+                    buttonClass={styles.phoneButton}
                     id='phone'
                     placeholder='e.g. +1 234 567 890'
                     value={enteredNumber}
