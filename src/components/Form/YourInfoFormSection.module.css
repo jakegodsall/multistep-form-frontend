@@ -24,6 +24,11 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+.labelRow {
+    display: flex;
+    justify-content: space-between;
+}
+
 label {
     margin-bottom: 0.5rem;
 }
@@ -37,5 +42,8 @@ input {
 .error {
     font-size: 0.8rem;
     margin-top: 0.1rem;
+    margin-bottom: 0.5rem;
+
     color: #ff0000;
+    font-weight: bold;
 }
