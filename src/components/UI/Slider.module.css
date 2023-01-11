@@ -1,0 +1,30 @@
+.slider {
+    width: 2rem;
+    height: 1.5rem;
+    border-radius: 30px;
+
+    padding: 0 0.3rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: none;
+    background-color: hsl(213, 96%, 18%);
+}
+
+.slider::-moz-range-thumb {
+    background-color: hsl(0, 0%, 100%);
+    border: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+}
+
+.slider::-webkit-slider-thumb {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: hsl(0, 0%, 100%);
+    -webkit-appearance: none;
+    background-color: hsl(0, 0%, 100%);
+}

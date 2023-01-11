@@ -35,14 +35,11 @@ label {
 }
 
 input {
-    padding: 1rem !important;
-    border-radius: 10px !important;
     border: 1px solid hsl(229, 24%, 87%);
 }
 
 input,
 .phoneInput {
-    font-size: 1rem !important;
     font-weight: bolder;
     color: hsl(213, 96%, 18%);
 }
@@ -55,6 +52,7 @@ input,
     width: 100% !important;
     height: 49px !important;
     padding-left: 4rem !important;
+    font-size: 1rem !important;
 }
 
 .phoneButton {
@@ -62,10 +60,7 @@ input,
     border-radius: 10px !important;
 }
 
-.phoneButton:hover {
-}
-
-input:focus {
+input[type='text']:focus {
     border: 1px solid hsl(274, 100%, 62%) !important;
 }
 
