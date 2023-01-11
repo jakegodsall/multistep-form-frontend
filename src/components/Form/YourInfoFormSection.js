@@ -115,7 +115,9 @@ const Form = () => {
                 ></PhoneInput>
             </div>
 
-            <Button className={styles.button}>Next Step</Button>
+            <Button className={styles.button} position={styles.buttonPosition}>
+                Next Step
+            </Button>
         </div>
     );
 };

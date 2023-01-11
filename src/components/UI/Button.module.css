@@ -9,9 +9,6 @@
     color: hsl(0, 0%, 100%);
     font-weight: bolder;
 
-    margin-bottom: 0;
-    margin-top: auto;
-    align-self: flex-end;
     cursor: pointer;
 
     transition: transform 0.1s ease-in-out;

@@ -1,9 +1,9 @@
 .formNav {
-    width: 214px;
+    /* width: 214px; */
     margin: 1rem;
     border-radius: 10px;
     background-image: url('../../assets/images/bg-sidebar-desktop.svg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding: 2rem;
