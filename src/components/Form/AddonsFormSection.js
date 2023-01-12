@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './AddonsFormSection.module.css';
 import AddonWidget from './FormWidgets/AddonWidget';
+import PreviousStepButton from '../UI/PreviousStepButton';
+import NextStepButton from '../UI/NextStepButton';
 
 const addons = [
     {
@@ -24,7 +26,17 @@ const addons = [
     },
 ];
 
-const AddonsFormSection = () => {
+const AddonsFormSection = (props) => {
+    const returnToPreviousStep = (e) => {
+        e.preventDefault();
+        props.prevStep();
+    };
+
+    const continueToNextStep = (e) => {
+        e.preventDefault();
+        props.nextStep();
+    };
+
     return (
         <div className={styles.formSection}>
             <h1>Pick add-ons</h1>
@@ -41,6 +53,10 @@ const AddonsFormSection = () => {
                         ></AddonWidget>
                     );
                 })}
+            </div>
+            <div className={styles.buttonRow}>
+                <PreviousStepButton onClick={returnToPreviousStep}>Go Back</PreviousStepButton>
+                <NextStepButton onClick={continueToNextStep}>Next Step</NextStepButton>
             </div>
         </div>
     );

@@ -1,0 +1,5 @@
+.buttonRow {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+}

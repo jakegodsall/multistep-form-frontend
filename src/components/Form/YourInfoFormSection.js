@@ -9,6 +9,7 @@ import 'react-phone-input-2/lib/style.css';
 // validators
 import { isName, isEmail } from '../../validators';
 import { isValidPhoneNumber } from 'react-phone-number-input';
+import NextStepButton from '../UI/NextStepButton';
 
 const Form = (props) => {
     //  form input states
@@ -61,6 +62,11 @@ const Form = (props) => {
 
     const enteredNumberBlurHandler = () => {
         setEnteredNumberTouched(true);
+    };
+
+    const continueToNextStep = (e) => {
+        e.preventDefault();
+        props.nextStep();
     };
 
     return (
@@ -132,6 +138,7 @@ const Form = (props) => {
                     onBlur={enteredNumberBlurHandler}
                 ></PhoneInput>
             </div>
+            <NextStepButton onClick={continueToNextStep}>Next Step</NextStepButton>
         </div>
     );
 };

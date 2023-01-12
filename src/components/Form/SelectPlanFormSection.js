@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Slider from '../UI/Slider';
 import PlanWidget from './FormWidgets/PlanWidget';
+import NextStepButton from '../UI/NextStepButton';
 
 import styles from './SelectPlanFormSection.module.css';
+import PreviousStepButton from '../UI/PreviousStepButton';
 
-const SelectPlanFormSection = () => {
+const SelectPlanFormSection = (props) => {
     const [sliderValue, setSliderValue] = useState(0);
 
     const onChangeHandler = (value) => {
@@ -19,6 +21,16 @@ const SelectPlanFormSection = () => {
         : `${styles.duration}`;
 
     const yearlyOffer = '2 months free';
+
+    const returnToPreviousStep = (e) => {
+        e.preventDefault();
+        props.prevStep();
+    };
+
+    const continueToNextStep = (e) => {
+        e.preventDefault();
+        props.nextStep();
+    };
 
     return (
         <div className={styles.formSection}>
@@ -48,6 +60,10 @@ const SelectPlanFormSection = () => {
                 <p className={monthlyClass}>Monthly</p>
                 <Slider onChange={onChangeHandler}></Slider>
                 <p className={yearlyClass}>Yearly</p>
+            </div>
+            <div className={styles.buttonRow}>
+                <PreviousStepButton onClick={returnToPreviousStep}>Go Back</PreviousStepButton>
+                <NextStepButton onClick={continueToNextStep}>Next Step</NextStepButton>
             </div>
         </div>
     );
