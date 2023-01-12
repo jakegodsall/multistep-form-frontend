@@ -1,11 +1,49 @@
 .addonWidget {
     display: flex;
     align-items: center;
+    border: 1px solid hsl(213, 96%, 18%);
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
 .addonLabel {
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.checkbox {
+    margin-left: 1.5rem;
+    transform: scale(1.7);
+}
+
+.checkbox:checked {
+    background-color: red;
+}
+
+.textSection {
+    margin-left: 1rem;
+}
+
+.title,
+.description {
+    margin: 0;
+}
+
+.title {
+    margin-bottom: 0.3rem;
+    font-weight: bolder;
+    color: hsl(213, 96%, 18%);
+}
+
+.description {
+    color: hsl(231, 11%, 63%);
+}
+
+.price {
+    color: hsl(243, 100%, 62%);
 }

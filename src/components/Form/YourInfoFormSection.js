@@ -10,7 +10,7 @@ import 'react-phone-input-2/lib/style.css';
 import { isName, isEmail } from '../../validators';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 
-const Form = () => {
+const Form = (props) => {
     //  form input states
     const [enteredName, setEnteredName] = useState('');
     const [enteredNameTouched, setEnteredNameTouched] = useState(false);

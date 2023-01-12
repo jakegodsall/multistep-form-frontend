@@ -8,14 +8,24 @@ import styles from './Form.module.css';
 
 const Form = () => {
     const [step, setStep] = useState(1);
+    const [formData, setFormData] = useState({
+        name: '',
+        emailAddress: '',
+        phoneNumber: '',
+        planType: '',
+        monthlyYearly: '',
+        onlineService: false,
+        largerStorage: false,
+        customiseProfile: false,
+    });
 
-    const goBack = (e) => {
+    const prevStep = () => {
         setStep((prevStep) => {
             return prevStep - 1;
         });
     };
 
-    const goForward = () => {
+    const nextStep = () => {
         setStep((prevStep) => {
             return prevStep + 1;
         });
@@ -53,21 +63,27 @@ const Form = () => {
             case 1:
                 return (
                     <React.Fragment>
-                        <YourInfoFormSection></YourInfoFormSection>
+                        <YourInfoFormSection nextStep={nextStep}></YourInfoFormSection>
                         {goForwardButton}
                     </React.Fragment>
                 );
             case 2:
                 return (
                     <React.Fragment>
-                        <SelectPlanFormSection></SelectPlanFormSection>
+                        <SelectPlanFormSection
+                            prevStep={prevStep}
+                            nextStep={nextStep}
+                        ></SelectPlanFormSection>
                         {buttonRow}
                     </React.Fragment>
                 );
             case 3:
                 return (
                     <React.Fragment>
-                        <AddonsFormSection></AddonsFormSection>
+                        <AddonsFormSection
+                            prevStep={prevStep}
+                            nextStep={nextStep}
+                        ></AddonsFormSection>
                         {buttonRow}
                     </React.Fragment>
                 );
@@ -76,7 +92,7 @@ const Form = () => {
         }
     };
 
-    return <form>{renderStep(3)}</form>;
+    return <form>{renderStep(step)}</form>;
 };
 
 export default Form;

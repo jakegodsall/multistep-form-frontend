@@ -19,7 +19,7 @@ const addons = [
     {
         id: 'customisable-profile',
         title: 'Customisable profile',
-        description: 'Customisable theme on your profile',
+        description: 'Custom theme on your profile',
         monthlyCost: 2,
     },
 ];
