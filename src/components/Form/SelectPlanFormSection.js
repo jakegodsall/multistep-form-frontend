@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Slider from '../UI/Slider';
 import PlanWidget from './FormWidgets/PlanWidget';
 
-import Button from '../UI/Button';
-
 import styles from './SelectPlanFormSection.module.css';
 
 const SelectPlanFormSection = () => {
@@ -50,10 +48,6 @@ const SelectPlanFormSection = () => {
                 <p className={monthlyClass}>Monthly</p>
                 <Slider onChange={onChangeHandler}></Slider>
                 <p className={yearlyClass}>Yearly</p>
-            </div>
-            <div className={styles.buttonRow}>
-                <Button position={styles.goBackButtonPosition}>Go Back</Button>
-                <Button position={styles.nextStepButtonPosition}>Next Step</Button>
             </div>
         </div>
     );

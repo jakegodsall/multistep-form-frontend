@@ -9,7 +9,6 @@ import 'react-phone-input-2/lib/style.css';
 // validators
 import { isName, isEmail } from '../../validators';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-import Button from '../UI/Button';
 
 const Form = () => {
     //  form input states
@@ -77,7 +76,11 @@ const Form = () => {
                     {invalidName && <p className={styles.error}>Please enter a valid name.</p>}
                 </div>
                 <input
-                    className={emptyName || invalidName ? styles.inputError : undefined}
+                    className={
+                        emptyName || invalidName
+                            ? `${styles.yourInputInput} ${styles.inputError}`
+                            : `${styles.yourInputInput}`
+                    }
                     type='text'
                     id='name'
                     placeholder='e.g. Stephen King'
@@ -95,7 +98,11 @@ const Form = () => {
                     )}
                 </div>
                 <input
-                    className={emptyEmail || invalidEmail ? styles.inputError : undefined}
+                    className={
+                        emptyEmail || invalidEmail
+                            ? `${styles.yourInputInput} ${styles.inputError}`
+                            : `${styles.yourInputInput}`
+                    }
                     type='text'
                     id='email-address'
                     placeholder='e.g. stephenking@lorem.com'
@@ -125,8 +132,6 @@ const Form = () => {
                     onBlur={enteredNumberBlurHandler}
                 ></PhoneInput>
             </div>
-
-            <Button position={styles.buttonPosition}>Next Step</Button>
         </div>
     );
 };
