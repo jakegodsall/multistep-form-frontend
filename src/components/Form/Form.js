@@ -76,7 +76,7 @@ const Form = () => {
         }
     };
 
-    return <form>{renderStep(step)}</form>;
+    return <form>{renderStep(3)}</form>;
 };
 
 export default Form;
