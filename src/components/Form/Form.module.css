@@ -4,24 +4,8 @@ form {
     padding: 4rem;
 }
 
-.buttonRow {
-    display: flex;
-    margin-top: auto;
-    justify-content: space-between;
-}
 
-.formNavigationButton {
-    padding: 1rem 0.5rem;
-    width: 7rem;
-    font-size: 1rem;
-    color: hsl(231, 100%, 99%);
-    letter-spacing: 0.05rem;
-    background-color: hsl(213, 96%, 18%);
-    border: none;
-    border-radius: 5px;
-    margin-top: auto;
-    cursor: pointer;
-}
+
 
 .nextStepButton {
     align-self: flex-end;

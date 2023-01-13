@@ -7,6 +7,7 @@ import styles from './SelectPlanFormSection.module.css';
 import PreviousStepButton from '../UI/PreviousStepButton';
 
 const SelectPlanFormSection = (props) => {
+    const [selectedPlan, setSelectedPlan] = useState('advanced');
     const [sliderValue, setSliderValue] = useState(0);
 
     const onChangeHandler = (value) => {
@@ -27,8 +28,19 @@ const SelectPlanFormSection = (props) => {
         props.prevStep();
     };
 
+    const onClickHandler = (e) => {
+        setSelectedPlan(e.target.id);
+    };
+
     const continueToNextStep = (e) => {
         e.preventDefault();
+
+        const monthlyYearly = +sliderValue === 0 ? 'monthly' : 'yearly';
+
+        props.handleChange({
+            monthlyYearly: monthlyYearly,
+            planType: selectedPlan,
+        });
         props.nextStep();
     };
 
@@ -42,18 +54,21 @@ const SelectPlanFormSection = (props) => {
                     monthlyPrice={9}
                     yearlyOffer={yearlyOffer}
                     isYearly={sliderValue}
+                    onClick={onClickHandler}
                 ></PlanWidget>
                 <PlanWidget
                     id='advanced'
                     monthlyPrice={12}
                     yearlyOffer={yearlyOffer}
                     isYearly={sliderValue}
+                    onClick={onClickHandler}
                 ></PlanWidget>
                 <PlanWidget
                     id='pro'
                     monthlyPrice={15}
                     yearlyOffer={yearlyOffer}
                     isYearly={sliderValue}
+                    onClick={onClickHandler}
                 ></PlanWidget>
             </div>
             <div className={styles.durationOptions}>

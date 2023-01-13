@@ -64,9 +64,26 @@ const Form = (props) => {
         setEnteredNumberTouched(true);
     };
 
+    const allInputsValid =
+        !enteredNameIsEmpty &&
+        !enteredNameIsNotName &&
+        !enteredEmailIsEmpty &&
+        !enteredEmailIsNotEmail &&
+        !enteredNumberIsEmpty &&
+        !enteredNumberIsNotValid;
+
     const continueToNextStep = (e) => {
         e.preventDefault();
-        props.nextStep();
+
+        if (allInputsValid) {
+            props.handleChange({
+                name: enteredName,
+                emailAddress: enteredEmail,
+                phoneNumber: enteredNumber,
+            });
+            props.nextStep();
+        } else {
+        }
     };
 
     return (

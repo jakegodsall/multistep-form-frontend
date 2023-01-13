@@ -7,19 +7,19 @@ import NextStepButton from '../UI/NextStepButton';
 
 const addons = [
     {
-        id: 'online-service',
+        id: 'onlineService',
         title: 'Online service',
         description: 'Access to multiplayer games',
         monthlyCost: 1,
     },
     {
-        id: 'larger-storage',
+        id: 'largerStorage',
         title: 'Larger storage',
         description: 'Extra 1TB of cloud save',
         monthlyCost: 2,
     },
     {
-        id: 'customisable-profile',
+        id: 'customiseProfile',
         title: 'Customisable profile',
         description: 'Custom theme on your profile',
         monthlyCost: 2,
@@ -37,6 +37,10 @@ const AddonsFormSection = (props) => {
         props.nextStep();
     };
 
+    const onChangeHandler = (id, value) => {
+        props.handleChange({ [id]: value });
+    };
+
     return (
         <div className={styles.formSection}>
             <h1>Pick add-ons</h1>
@@ -50,6 +54,7 @@ const AddonsFormSection = (props) => {
                             title={el.title}
                             description={el.description}
                             monthlyCost={el.monthlyCost}
+                            onChange={onChangeHandler}
                         ></AddonWidget>
                     );
                 })}

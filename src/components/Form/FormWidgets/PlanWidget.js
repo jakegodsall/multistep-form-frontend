@@ -13,18 +13,18 @@ const iconMap = {
 };
 
 const PlanWidget = (props) => {
-    const planWidgetClasses = +props.isYearly
-        ? `${styles.planWidget} ${styles.planWidgetWithOffer}`
-        : `${styles.planWidget}`;
+    const planLabelClasses = +props.isYearly
+        ? `${styles.planLabel} ${styles.planLabelWithOffer}`
+        : `${styles.planLabel}`;
 
     const yearlyOfferClasses = +props.isYearly
         ? `${styles.yearlyOffer} ${styles.yearlyOfferActive}`
         : `${styles.yearlyOffer}`;
 
     return (
-        <div className={planWidgetClasses}>
+        <div className={styles.planWidget} onClick={props.onClick}>
             <input className={styles.planRadio} type='radio' id={props.id} name='plan' />
-            <label className={styles.planLabel} htmlFor={props.id}>
+            <label className={planLabelClasses} htmlFor={props.id}>
                 <img className={styles.planIcon} src={iconMap[props.id]} alt={props.id} />
                 <p className={styles.planType}>{props.id}</p>
                 <p className={styles.monthlyPrice}>${props.monthlyPrice}/mo</p>

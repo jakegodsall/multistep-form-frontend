@@ -39,46 +39,26 @@ const Form = () => {
         });
     };
 
-    const handleChange = (input) => (e) => {
+    const handleChange = (input) => {
         setFormData((prevState) => {
             return {
                 ...prevState,
-                input: e.target.value,
+                ...input,
             };
         });
     };
 
-    // const goForwardButton = (
-    //     <button
-    //         type='button'
-    //         className={`${styles.formNavigationButton} ${styles.nextStepButton}`}
-    //         onClick={goForward}
-    //     >
-    //         Next Step
-    //     </button>
-    // );
-
-    // const goBackButton = (
-    //     <button
-    //         type='button'
-    //         className={`${styles.formNavigationButton} ${styles.goBackButton}`}
-    //         onClick={goBack}
-    //     >
-    //         Go Back
-    //     </button>
-    // );
-
-    // const buttonRow = (
-    //     <div className={styles.buttonRow}>
-    //         {goBackButton}
-    //         {goForwardButton}
-    //     </div>
-    // );
+    console.log(formData);
 
     const renderStep = () => {
         switch (formData.step) {
             case 1:
-                return <YourInfoFormSection nextStep={nextStep}></YourInfoFormSection>;
+                return (
+                    <YourInfoFormSection
+                        nextStep={nextStep}
+                        handleChange={handleChange}
+                    ></YourInfoFormSection>
+                );
             case 2:
                 return (
                     <SelectPlanFormSection
@@ -120,7 +100,7 @@ const Form = () => {
         }
     };
 
-    return <form>{renderStep(formData.step)}</form>;
+    return <form>{renderStep(2)}</form>;
 };
 
 export default Form;

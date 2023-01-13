@@ -1,14 +1,5 @@
 .planWidget {
-    height: 174px;
-    border-radius: 10px;
-    border: 1px solid hsl(229, 24%, 87%);
-    padding: 1rem;
     box-sizing: border-box;
-    transition: 0.8s;
-}
-
-.planWidgetWithOffer {
-    height: 200px;
 }
 
 .planLabel {
@@ -19,14 +10,19 @@
     cursor: pointer;
     box-sizing: border-box;
 
-    height: 100%;
+    padding: 1rem;
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 10px;
+
+    height: 174px;
+    transition: 0.8s;
 }
 
-.planWidget:hover {
-    border: 1px solid hsl(243, 100%, 62%);
+.planLabelWithOffer {
+    height: 200px;
 }
 
-input[type='radio']:checked + .planWidget {
+input[type='radio']:checked ~ .planLabel {
     background-color: hsl(225, 50%, 97%);
     border: 2px solid hsl(243, 100%, 62%);
 }
