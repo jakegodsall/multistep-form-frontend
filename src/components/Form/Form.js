@@ -10,15 +10,15 @@ import styles from './Form.module.css';
 
 const Form = () => {
     const [formData, setFormData] = useState({
-        step: 1,
-        name: '',
-        emailAddress: '',
-        phoneNumber: '',
-        planType: '',
-        monthlyYearly: '',
-        onlineService: false,
+        step: 4,
+        name: 'Jake',
+        emailAddress: 'jake.edward.godsall@gmail.com',
+        phoneNumber: '+44 7367426604',
+        planType: 'arcade',
+        monthlyYearly: 'monthly',
+        onlineService: true,
         largerStorage: false,
-        customiseProfile: false,
+        customiseProfile: true,
     });
 
     const prevStep = () => {

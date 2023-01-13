@@ -1,0 +1,49 @@
+.formSection {
+    display: flex;
+    flex-direction: column;
+    color: hsl(213, 96%, 18%);
+
+    position: relative;
+    height: 85%;
+}
+
+.overview {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: hsl(230, 43%, 97%);
+}
+
+.planTitle {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+}
+
+.addons {
+    border-top: 1px solid hsla(231, 11%, 63%, 0.405);
+    font-size: 0.9rem;
+    padding: 1.2rem 0 0.8rem;
+}
+
+.addon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addonName,
+.addonValue {
+    margin: 0.5rem 0;
+}
+
+.addonName {
+    color: hsl(231, 11%, 63%);
+}
+
+.addonValue {
+    color: hsl(213, 96%, 18%);
+}
+
+.buttonRow {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+}
