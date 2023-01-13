@@ -15,10 +15,55 @@ const Form = () => {
         emailAddress: 'jake.edward.godsall@gmail.com',
         phoneNumber: '+44 7367426604',
         planType: 'arcade',
+        plan: [
+            {
+                name: 'arcade',
+                cost: 9,
+                selected: false,
+                yearlyOffer: '2 months free',
+            },
+            {
+                name: 'advanced',
+                cost: 12,
+                selected: true,
+                yearlyOffer: '2 months free',
+            },
+            {
+                name: 'pro',
+                cost: 15,
+                selected: true,
+                yearlyOffer: '2 months free',
+            },
+        ],
+        planCost: {
+            arcade: 9,
+            advanced: 12,
+            pro: 15,
+        },
         monthlyYearly: 'monthly',
         onlineService: true,
         largerStorage: false,
         customiseProfile: true,
+        addons: [
+            {
+                id: 'onlineService',
+                name: 'Online Service',
+                cost: 1,
+                selected: true,
+            },
+            {
+                id: 'largerStorage',
+                name: 'Larger Storage',
+                cost: 2,
+                selected: true,
+            },
+            {
+                id: 'customiseProfile',
+                name: 'Customise Profile',
+                cost: 2,
+                selected: true,
+            },
+        ],
     });
 
     const prevStep = () => {
@@ -47,8 +92,6 @@ const Form = () => {
             };
         });
     };
-
-    console.log(formData);
 
     const renderStep = () => {
         switch (formData.step) {

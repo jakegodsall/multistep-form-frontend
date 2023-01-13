@@ -15,6 +15,8 @@ const ConfirmationFormSection = (props) => {
         onlineService,
         largerStorage,
         customiseProfile,
+        plan,
+        addons,
     } = props.values;
 
     console.log('name', name);
@@ -30,8 +32,7 @@ const ConfirmationFormSection = (props) => {
         props.nextStep();
     };
 
-    console.log(props.values);
-    console.log(planType);
+    console.log(addons);
 
     return (
         <div className={styles.formSection}>
@@ -40,18 +41,16 @@ const ConfirmationFormSection = (props) => {
             <div className={styles.overview}>
                 <h2 className={styles.planTitle}>{`${planType} (${monthlyYearly})`}</h2>
                 <div className={styles.addons}>
-                    <div className={styles.addon}>
-                        {onlineService && <p className={styles.addonName}>Online Service</p>}
-                        {onlineService && <p className={styles.addonValue}>+£1/mo</p>}
-                    </div>
-                    <div className={styles.addon}>
-                        {largerStorage && <p className={styles.addonName}>Larger Storage</p>}
-                        {largerStorage && <p className={styles.addonValue}>+£2/mo</p>}
-                    </div>
-                    <div className={styles.addon}>
-                        {customiseProfile && <p className={styles.addonName}>Customise Profile</p>}
-                        {customiseProfile && <p className={styles.addonValue}>+£2/mo</p>}
-                    </div>
+                    {addons.map((el, idx) => {
+                        return (
+                            <div className={styles.addon}>
+                                {el.selected && <p className={styles.addonName}>{el.name}</p>}
+                                {el.selected && (
+                                    <p className={styles.addonValue}>{`+£${el.cost}/mo`}</p>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <div className={styles.buttonRow}>
