@@ -10,11 +10,10 @@ import styles from './Form.module.css';
 
 const Form = () => {
     const [formData, setFormData] = useState({
-        step: 4,
+        step: 2,
         name: 'Jake',
         emailAddress: 'jake.edward.godsall@gmail.com',
         phoneNumber: '+44 7367426604',
-        planType: 'arcade',
         plan: [
             {
                 name: 'arcade',
@@ -38,12 +37,6 @@ const Form = () => {
                 monthlyYearly: 'monthly',
             },
         ],
-        planCost: {
-            arcade: 9,
-            advanced: 12,
-            pro: 15,
-        },
-        monthlyYearly: 'monthly',
         onlineService: true,
         largerStorage: false,
         customiseProfile: true,
@@ -145,6 +138,8 @@ const Form = () => {
                 return;
         }
     };
+
+    console.log(formData.plan);
 
     return <form>{renderStep(2)}</form>;
 };

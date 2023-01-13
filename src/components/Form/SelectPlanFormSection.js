@@ -10,6 +10,9 @@ const SelectPlanFormSection = (props) => {
     const [selectedPlan, setSelectedPlan] = useState('advanced');
     const [sliderValue, setSliderValue] = useState(0);
 
+    // get the plan data form the form state
+    const planObject = props.values.plan;
+
     const onChangeHandler = (value) => {
         setSliderValue(value);
     };
@@ -37,10 +40,26 @@ const SelectPlanFormSection = (props) => {
 
         const monthlyYearly = +sliderValue === 0 ? 'monthly' : 'yearly';
 
-        props.handleChange({
-            monthlyYearly: monthlyYearly,
-            planType: selectedPlan,
+        // set each plan to false
+        const newPlanObject = planObject.map((el) => {
+            if (el.name === selectedPlan) {
+                return {
+                    name: el.name,
+                    cost: el.cost,
+                    selected: true,
+                    monthlyYearly: monthlyYearly,
+                };
+            } else {
+                return {
+                    name: el.name,
+                    cost: el.cost,
+                    selected: false,
+                    monthlyYearly: monthlyYearly,
+                };
+            }
         });
+
+        props.handleChange({ plan: newPlanObject });
         props.nextStep();
     };
 
@@ -49,27 +68,18 @@ const SelectPlanFormSection = (props) => {
             <h1>Select your plan</h1>
             <p>You have the option of monthly or yearly billing.</p>
             <div className={styles.widgetGrid}>
-                <PlanWidget
-                    id='arcade'
-                    monthlyPrice={9}
-                    yearlyOffer={yearlyOffer}
-                    isYearly={sliderValue}
-                    onClick={onClickHandler}
-                ></PlanWidget>
-                <PlanWidget
-                    id='advanced'
-                    monthlyPrice={12}
-                    yearlyOffer={yearlyOffer}
-                    isYearly={sliderValue}
-                    onClick={onClickHandler}
-                ></PlanWidget>
-                <PlanWidget
-                    id='pro'
-                    monthlyPrice={15}
-                    yearlyOffer={yearlyOffer}
-                    isYearly={sliderValue}
-                    onClick={onClickHandler}
-                ></PlanWidget>
+                {planObject.map((el, idx) => {
+                    return (
+                        <PlanWidget
+                            key={idx}
+                            id={el.name}
+                            monthlyPrice={el.cost}
+                            yearlyOffer={el.yearlyOffer}
+                            isYearly={sliderValue}
+                            onClick={onClickHandler}
+                        ></PlanWidget>
+                    );
+                })}
             </div>
             <div className={styles.durationOptions}>
                 <p className={monthlyClass}>Monthly</p>
