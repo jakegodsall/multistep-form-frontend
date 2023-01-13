@@ -21,18 +21,21 @@ const Form = () => {
                 cost: 9,
                 selected: false,
                 yearlyOffer: '2 months free',
+                monthlyYearly: 'monthly',
             },
             {
                 name: 'advanced',
                 cost: 12,
                 selected: true,
                 yearlyOffer: '2 months free',
+                monthlyYearly: 'monthly',
             },
             {
                 name: 'pro',
                 cost: 15,
-                selected: true,
+                selected: false,
                 yearlyOffer: '2 months free',
+                monthlyYearly: 'monthly',
             },
         ],
         planCost: {

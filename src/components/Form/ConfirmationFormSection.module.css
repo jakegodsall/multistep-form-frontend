@@ -13,8 +13,20 @@
     background-color: hsl(230, 43%, 97%);
 }
 
+.overviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .planTitle {
     text-transform: capitalize;
+    font-size: 1.1rem;
+}
+
+.planCost {
+    font-weight: bolder;
+    color: hsl(213, 96%, 18%);
     font-size: 1.1rem;
 }
 
@@ -34,12 +46,31 @@
     margin: 0.5rem 0;
 }
 
-.addonName {
+.addonName,
+.totalText {
     color: hsl(231, 11%, 63%);
 }
 
 .addonValue {
     color: hsl(213, 96%, 18%);
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.totalText,
+.totalValue {
+    margin-top: 0.3rem;
+}
+
+.totalValue {
+    color: hsl(243, 100%, 62%);
+    font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .buttonRow {
