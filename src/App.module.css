@@ -21,7 +21,7 @@
         grid-template-columns: 1fr;
         margin-top: 9rem;
         position: fixed;
-        bottom: 5rem;
+        bottom: 10rem;
         top: 2rem;
         height: auto;
     }

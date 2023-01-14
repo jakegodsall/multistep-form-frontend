@@ -24,8 +24,6 @@ const SelectPlanFormSection = (props) => {
         ? `${styles.duration} ${styles.activeDuration}`
         : `${styles.duration}`;
 
-    const yearlyOffer = '2 months free';
-
     const returnToPreviousStep = (e) => {
         e.preventDefault();
         props.prevStep();
@@ -65,8 +63,10 @@ const SelectPlanFormSection = (props) => {
 
     return (
         <div className={styles.formSection}>
-            <h1>Select your plan</h1>
-            <p>You have the option of monthly or yearly billing.</p>
+            <h1 className={styles.sectionTitle}>Select your plan</h1>
+            <p className={styles.sectionDescription}>
+                You have the option of monthly or yearly billing.
+            </p>
             <div className={styles.widgetGrid}>
                 {planObject.map((el, idx) => {
                     return (

@@ -10,7 +10,7 @@ import styles from './Form.module.css';
 
 const Form = (props) => {
     const [formData, setFormData] = useState({
-        step: 1,
+        step: 2,
         name: 'Jake',
         emailAddress: 'jake.edward.godsall@gmail.com',
         phoneNumber: '+44 7367426604',
@@ -98,6 +98,7 @@ const Form = (props) => {
                     <YourInfoFormSection
                         nextStep={nextStep}
                         handleChange={handleChange}
+                        values={formData}
                     ></YourInfoFormSection>
                 );
             case 2:

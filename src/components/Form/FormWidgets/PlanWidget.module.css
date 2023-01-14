@@ -57,3 +57,27 @@ input[type='radio']:checked ~ .planLabel {
     opacity: 1;
     transition: 1s linear;
 }
+
+@media screen and (max-width: 850px) {
+    .planLabel {
+        flex-direction: row;
+        align-items: center;
+        height: 80px;
+    }
+
+    .planIcon {
+        margin: 0;
+    }
+
+    .textContent {
+        margin-left: 1rem;
+    }
+
+    .textContent p {
+        margin: 0.3rem 0;
+    }
+
+    .planLabelWithOffer {
+        height: 100px;
+    }
+}

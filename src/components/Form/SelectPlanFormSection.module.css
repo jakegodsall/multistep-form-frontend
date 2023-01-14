@@ -3,8 +3,11 @@
     flex-direction: column;
     color: hsl(213, 96%, 18%);
 
-    position: relative;
     height: 100%;
+}
+
+.sectionDescription {
+    color: hsl(231, 11%, 63%);
 }
 
 .widgetGrid {
@@ -36,6 +39,21 @@
 
 .buttonRow {
     display: flex;
-    margin-top: auto;
+    position: absolute;
+    bottom: 0;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 850px) {
+    .sectionTitle {
+        margin: 0;
+    }
+
+    .widgetGrid {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
 }

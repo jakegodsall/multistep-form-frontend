@@ -21,14 +21,18 @@ const PlanWidget = (props) => {
         ? `${styles.yearlyOffer} ${styles.yearlyOfferActive}`
         : `${styles.yearlyOffer}`;
 
+    console.log(props.yearlyOffer);
+
     return (
         <div className={styles.planWidget} onClick={props.onClick}>
             <input className={styles.planRadio} type='radio' id={props.id} name='plan' />
             <label className={planLabelClasses} htmlFor={props.id}>
                 <img className={styles.planIcon} src={iconMap[props.id]} alt={props.id} />
-                <p className={styles.planType}>{props.id}</p>
-                <p className={styles.monthlyPrice}>${props.monthlyPrice}/mo</p>
-                <p className={yearlyOfferClasses}>{props.yearlyOffer}</p>
+                <div className={styles.textContent}>
+                    <p className={styles.planType}>{props.id}</p>
+                    <p className={styles.monthlyPrice}>${props.monthlyPrice}/mo</p>
+                    <p className={yearlyOfferClasses}>{props.yearlyOffer}</p>
+                </div>
             </label>
         </div>
     );
