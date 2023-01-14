@@ -20,5 +20,9 @@
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
         margin-top: 9rem;
+        position: fixed;
+        bottom: 5rem;
+        top: 2rem;
+        height: auto;
     }
 }
