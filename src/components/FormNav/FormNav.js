@@ -10,30 +10,32 @@ const FormNav = (props) => {
     return (
         <nav className={styles.formNav}>
             <ul>
-                <li>
-                    {steps.map((step, idx) => {
-                        const number = idx + 1;
-                        if (number === props.currentStep) {
-                            return (
+                {steps.map((step, idx) => {
+                    const number = idx + 1;
+                    if (number === props.currentStep) {
+                        return (
+                            <li>
                                 <FormNavItem
                                     key={idx}
                                     number={number}
                                     title={step}
                                     isActive={true}
                                 />
-                            );
-                        } else {
-                            return (
+                            </li>
+                        );
+                    } else {
+                        return (
+                            <li>
                                 <FormNavItem
                                     key={idx}
                                     number={number}
                                     title={step}
                                     isActive={false}
                                 />
-                            );
-                        }
-                    })}
-                </li>
+                            </li>
+                        );
+                    }
+                })}
             </ul>
         </nav>
     );

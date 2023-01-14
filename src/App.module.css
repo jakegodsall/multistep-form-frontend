@@ -1,5 +1,5 @@
 .container {
-    width: min(70%, 930px);
+    width: 892px;
     height: 700px;
     display: grid;
     grid-template-rows: 1fr;
@@ -7,4 +7,17 @@
     background-color: hsl(0, 0%, 100%);
     border-radius: 10px;
     box-shadow: 0px 5px 20px 5px rgb(234, 234, 234);
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .container {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
 }

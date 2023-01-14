@@ -4,7 +4,14 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+body {
+    margin: 0;
+    z-index: -15;
+    position: relative;
+}
+
 #root {
+    margin: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -13,10 +20,18 @@
     justify-content: center;
     background-color: hsl(231, 100%, 99%);
     box-sizing: border-box;
+    z-index: -10;
+    position: relative;
 }
 
 ul,
 li {
     list-style-type: none;
     padding-left: 0;
+}
+
+@media screen and (max-width: 850px) {
+    #root {
+        justify-content: baseline;
+    }
 }
