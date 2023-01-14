@@ -32,6 +32,6 @@ li {
 
 @media screen and (max-width: 850px) {
     #root {
-        justify-content: baseline;
+        justify-content: flex-start;
     }
 }
