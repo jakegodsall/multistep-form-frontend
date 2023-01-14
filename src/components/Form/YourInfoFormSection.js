@@ -155,7 +155,9 @@ const Form = (props) => {
                     onBlur={enteredNumberBlurHandler}
                 ></PhoneInput>
             </div>
-            <NextStepButton onClick={continueToNextStep}>Next Step</NextStepButton>
+            <div className={styles.buttonRow}>
+                <NextStepButton onClick={continueToNextStep}>Next Step</NextStepButton>
+            </div>
         </div>
     );
 };

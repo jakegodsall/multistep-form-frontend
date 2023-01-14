@@ -1,3 +1,12 @@
+.formSection {
+    display: flex;
+    flex-direction: column;
+    color: hsl(213, 96%, 18%);
+
+    position: relative;
+    height: 100%;
+}
+
 .buttonRow {
     display: flex;
     margin-top: auto;
