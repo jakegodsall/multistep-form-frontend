@@ -12,6 +12,13 @@
     margin-right: 1rem;
 }
 
+.circle.active {
+    background-color: hsl(206, 94%, 87%);
+    border: 2px solid hsl(206, 94%, 87%);
+    color: hsl(213, 96%, 18%);
+    font-weight: bolder;
+}
+
 .step,
 .title {
     margin: 0;

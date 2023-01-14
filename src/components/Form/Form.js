@@ -8,9 +8,9 @@ import ThankYouFormSection from './ThankYouFormSection';
 
 import styles from './Form.module.css';
 
-const Form = () => {
+const Form = (props) => {
     const [formData, setFormData] = useState({
-        step: 2,
+        step: 1,
         name: 'Jake',
         emailAddress: 'jake.edward.godsall@gmail.com',
         phoneNumber: '+44 7367426604',
@@ -63,6 +63,7 @@ const Form = () => {
     });
 
     const prevStep = () => {
+        props.stepChange(formData.step - 1);
         setFormData((prevState) => {
             return {
                 ...prevState,
@@ -72,6 +73,7 @@ const Form = () => {
     };
 
     const nextStep = () => {
+        props.stepChange(formData.step + 1);
         setFormData((prevState) => {
             return {
                 ...prevState,
