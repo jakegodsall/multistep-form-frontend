@@ -6,11 +6,17 @@ import AddonsFormSection from './AddonsFormSection';
 import ConfirmationFormSection from './ConfirmationFormSection';
 import ThankYouFormSection from './ThankYouFormSection';
 
+import { Formik } from 'formik';
+
+// validators
+import { isName, isEmail } from '../../validators';
+import { isValidPhoneNumber } from 'react-phone-number-input';
+
 import styles from './Form.module.css';
 
 const Form = (props) => {
     const [formData, setFormData] = useState({
-        step: 2,
+        step: 1,
         name: 'Jake',
         emailAddress: 'jake.edward.godsall@gmail.com',
         phoneNumber: '+44 7367426604',
@@ -144,7 +150,34 @@ const Form = (props) => {
 
     console.log(formData.plan);
 
-    return <form>{renderStep(2)}</form>;
+    return (
+        <Formik
+            initialValues={{ name: 'jake', email: 'jake@jake.com', phone: '+44 7777 777 777' }}
+            validate={(values) => {
+                const errors = {};
+                if (!values.name) {
+                    errors.name = 'Required';
+                } else if (!values.email) {
+                    errors.email = 'Required';
+                } else if (!isEmail(values.email)) {
+                    errors.email = 'Invalid email address';
+                } else if (!values.phone) {
+                    errors.phone = 'Required';
+                } else if (!isValidPhoneNumber(values.phone)) {
+                    errors.phone = 'Invalid phone number';
+                }
+                return errors;
+            }}
+            onSubmmit={(values, { setSubmitting }) => {
+                setTimeout(() => {
+                    alert(JSON.stringify(values, null, 2));
+                    setSubmitting = false;
+                }, 400);
+            }}
+        >
+            <form>{renderStep(2)}</form>
+        </Formik>
+    );
 };
 
 export default Form;
