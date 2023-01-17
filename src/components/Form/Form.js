@@ -10,10 +10,10 @@ import styles from './Form.module.css';
 
 const Form = (props) => {
     const [formData, setFormData] = useState({
-        step: 5,
-        name: 'Jake',
-        emailAddress: 'jake.edward.godsall@gmail.com',
-        phoneNumber: '+44 7367426604',
+        step: 2,
+        name: '',
+        emailAddress: '',
+        phoneNumber: '',
         plan: [
             {
                 name: 'arcade',
@@ -142,7 +142,7 @@ const Form = (props) => {
         }
     };
 
-    console.log(formData.plan);
+    console.log(formData);
 
     return <form>{renderStep(2)}</form>;
 };

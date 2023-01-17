@@ -109,7 +109,7 @@ const Form = (props) => {
                     placeholder='e.g. Stephen King'
                     onChange={enteredNameChangeHandler}
                     onBlur={enteredNameBlurHandler}
-                    country={'uk'}
+                    value={enteredName}
                 />
             </div>
             <div className={styles.formElement}>
@@ -131,6 +131,7 @@ const Form = (props) => {
                     placeholder='e.g. stephenking@lorem.com'
                     onChange={enteredEmailChangeHandler}
                     onBlur={enteredEmailBlurHandler}
+                    value={enteredEmail}
                 />
             </div>
             <div className={styles.formElement}>
@@ -153,6 +154,7 @@ const Form = (props) => {
                     value={enteredNumber}
                     onChange={enteredNumberChangeHandler}
                     onBlur={enteredNumberBlurHandler}
+                    value={enteredNumber}
                 ></PhoneInput>
             </div>
             <div className={styles.buttonRow}>

@@ -69,6 +69,7 @@ const SelectPlanFormSection = (props) => {
             </p>
             <div className={styles.widgetGrid}>
                 {planObject.map((el, idx) => {
+                    const isSelected = selectedPlan === el.name;
                     return (
                         <PlanWidget
                             key={idx}
@@ -77,6 +78,7 @@ const SelectPlanFormSection = (props) => {
                             yearlyOffer={el.yearlyOffer}
                             isYearly={sliderValue}
                             onClick={onClickHandler}
+                            isSelected={isSelected}
                         ></PlanWidget>
                     );
                 })}
